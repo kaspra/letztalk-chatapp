@@ -1,0 +1,44 @@
+@import '../../../style.scss';
+
+.chatlist{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .chatlist_con{
+        width: 80%;
+        padding: 0 10px;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar{
+            background: none;
+        }
+
+        .chatbox{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            color: $dark-gray;
+            cursor: pointer;
+            
+            img{
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            span{
+                font-size: 16px;
+                color: $main-color;
+            }
+            
+            p{
+                font-size: 13px;
+                color: $light-gray;
+            }
+       }
+    }
+}

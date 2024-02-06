@@ -1,0 +1,81 @@
+@import '../../../style.scss';
+
+.inputbox{
+    height: 10vh;
+    padding: 10px;
+    font-family: Arial;
+
+    .inputbox_con{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+
+        form{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #ebeaea;
+            border-radius: 20px;
+            padding: 0 0 0 20px;
+            width: 90%;
+            background-color: $input-color;
+
+            .input_msg-box{
+                font-size: 15px;
+                border: none;
+                height: 100%;
+                width: 80%;
+                color: $dark-gray;
+                background: transparent;
+
+                &:focus{
+                    outline: none;
+                }
+            }
+
+            .input_btn{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 6px;
+
+                .input_attach{
+                    label{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        img {
+                            width: 21px;
+                            height: 21px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .input_send{
+                    border-radius: 50%;
+                    padding: 5px 5px 1px 5px;
+                    background-color: $main-color;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    label{
+                        img {
+                            width: 23px;
+                            height: 23px;
+                            object-fit: contain;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            
+            img{
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+}

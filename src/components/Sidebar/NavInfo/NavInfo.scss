@@ -1,0 +1,22 @@
+.navinfo{
+    .navinfo_con{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+        width: 100%;
+        
+        img{
+            height: 24px;
+        }
+
+        .navinfo_con-user{
+            img{
+                width: 42px;
+                height: 42px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+    }
+}

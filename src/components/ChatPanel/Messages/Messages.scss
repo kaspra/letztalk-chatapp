@@ -1,0 +1,97 @@
+@import '../../../style.scss';
+
+.messages{
+    height: 80vh;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    .messages_con{
+        padding: 12px 20px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: 100%;
+
+        &::-webkit-scrollbar{
+            background: none;
+        }
+        
+        .message{
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+
+            .message_info{
+                img{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }                
+            }
+
+            .message_con{
+                max-width: 80%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+
+                a{
+                    display: flex;
+                    flex-direction: row;
+                    
+                    img{
+                        width: 50%;
+                        border-radius: 8px;
+                    }
+                }
+
+                .message_text{
+                    background-color: $secondary-color;
+                    color: $dark-gray;
+                    border-radius: 0px 10px 10px 10px;
+                    padding: 6px 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 4px;
+
+                    p{
+                        font-size: 16px;
+                    }
+
+                    span{
+                        font-size: 10px;
+                        font-weight: 100;
+                    }
+                }
+            }
+
+            &.owner{
+                flex-direction: row-reverse;
+
+                .message_con{
+                    align-items: flex-end;
+
+                    a{
+                        flex-direction: row-reverse;
+
+                        img{
+                            border-radius: 8px;
+                        }
+                    }
+
+                    .message_text{
+                        background-color: $main-color;
+                        color: $primary-color;
+                        border-radius: 10px 0 10px 10px;
+                        align-items: flex-end;
+
+                        p{
+                            padding-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
