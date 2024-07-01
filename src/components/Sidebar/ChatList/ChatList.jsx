@@ -8,34 +8,36 @@ import { db } from "../../../firebase";
 import { images } from "../../../constants";
 import "./ChatList.scss";
 
-const ChatList = ({ setShowPanel }) => {
-  const [chats, setChats] = useState([]);
+const ChatList = ({ setShowPanel, handleSelect, chats, setChats }) => {
+  // pass the chats data to the search component
 
-  const { currentUser } = useContext(AuthContext);
-  const { dispatch } = useContext(ChatContext);
-  const { closeSidebar } = useGlobalContext();
+  // const [chats, setChats] = useState([]);
 
-  useEffect(() => {
-    const getChats = () => {
-      const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
-        setChats(doc.data());
-      });
-      return () => {
-        unsub();
-      };
-    };
-    currentUser.uid && getChats();
-  }, [currentUser.uid]);
+  // const { currentUser } = useContext(AuthContext);
+  // const { dispatch } = useContext(ChatContext);
+  // const { closeSidebar } = useGlobalContext();
 
-  const handleSelect = (u) => {
-    closeSidebar();
-    dispatch({
-      type: "CHANGE_USER",
-      payload: u,
-    });
-  };
+  // useEffect(() => {
+  //   const getChats = () => {
+  //     const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
+  //       setChats(doc.data());
+  //     });
+  //     return () => {
+  //       unsub();
+  //     };
+  //   };
+  //   currentUser.uid && getChats();
+  // }, [currentUser.uid]);
 
-  console.log(chats);
+  // const handleSelect = (u) => {
+  //   closeSidebar();
+  //   dispatch({
+  //     type: "CHANGE_USER",
+  //     payload: u,
+  //   });
+  // };
+
+  // console.log(chats);
 
   return (
     <div className="chatlist">
