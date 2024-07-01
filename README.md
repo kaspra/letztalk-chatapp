@@ -2,6 +2,11 @@
 
 # Changes want to make:-
 
-- Deploy to Vercel
+Working On :-
+
 - Change the UserInterface
 - Check
+
+Finished :-
+
+- Deploy to Vercel
