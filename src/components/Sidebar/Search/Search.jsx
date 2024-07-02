@@ -24,8 +24,8 @@ const Search = ({ chats, setChats, originalChats }) => {
   };
 
   return (
-    <div className="search">
-      <div className="search_con">
+    <div className="search_internal">
+      <div className="search_internal-con">
         <form>
           <input
             type="text"

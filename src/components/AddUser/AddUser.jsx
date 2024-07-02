@@ -11,9 +11,10 @@ import {
   getDoc,
 } from "firebase/firestore";
 
-import { db } from "../../../firebase";
-import { AuthContext } from "../../../context/AuthContext";
-import { images } from "../../../constants";
+import { db } from "../../firebase";
+import { AuthContext } from "../../context/AuthContext";
+import { images } from "../../constants";
+import "./AddUser.scss";
 
 const AddUser = ({ chats, setChats }) => {
   // --- Search for users in database ---

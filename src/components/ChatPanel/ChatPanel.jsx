@@ -4,6 +4,7 @@ import SenderInfo from "./SenderInfo/SenderInfo";
 import Messages from "./Messages/Messages";
 import InputBox from "./InputBox/InputBox";
 import Divider from "./Divider/Divider";
+
 import { ChatContext } from "../../context/ChatContext";
 import "./ChatPanel.scss";
 
