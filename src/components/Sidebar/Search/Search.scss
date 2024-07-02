@@ -1,55 +1,55 @@
-@import '../../../style.scss';
+@import "../../../style.scss";
 
-.search{
-    padding: 0 20px 10px 20px;
+.search {
+  padding: 0 20px 10px 20px;
 
-    .search_con{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
+  .search_con {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
-        form{
-            width: 100%;
-            input {
-                width: 100%;
-                border: none;
-                padding: 8px 12px;
-                border-radius: 20px;
+    form {
+      width: 100%;
+      input {
+        width: 100%;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 20px;
 
-                font-size: 14px;
-                font-family: 'Nunito Sans';
-                &:focus{
-                    outline: none;
-                }
-            }
+        font-size: 14px;
+        font-family: "Nunito Sans";
+        &:focus {
+          outline: none;
         }
-        
-        .err{
-            font-size: 14px;
-            text-align: center;
-            padding: 4px;
-            color: $light-gray;
-        }
-
-        .chatbox{
-            display: flex;
-            align-items: center;
-            gap: 10px;          
-            padding: 10px 0 10px 26px ;
-            font-family: 'Nunito Sans';
-            border-bottom: 1px solid $line-color;
-            cursor: pointer;
-
-            img{
-                width: 36px;
-                height: 36px;
-                object-fit: cover;
-                border-radius: 50%;
-            }
-            span{
-                font-size: 18px;
-                color: $main-color;
-            }
-        }
+      }
     }
+
+    .err {
+      font-size: 14px;
+      text-align: center;
+      padding: 6px 0 0 0;
+      color: $light-gray;
+    }
+
+    .chatbox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0 10px 26px;
+      font-family: "Nunito Sans";
+      border-bottom: 1px solid $line-color;
+      cursor: pointer;
+
+      img {
+        width: 36px;
+        height: 36px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      span {
+        font-size: 18px;
+        color: $main-color;
+      }
+    }
+  }
 }

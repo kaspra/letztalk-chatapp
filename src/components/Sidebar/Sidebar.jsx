@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
 
 import { AuthContext } from "../../context/AuthContext";
@@ -13,6 +13,7 @@ import "./Sidebar.scss";
 
 const Sidebar = ({ showPanel, setShowPanel }) => {
   const [chats, setChats] = useState([]);
+  const originalChatsRef = useRef([]);
 
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
@@ -21,7 +22,9 @@ const Sidebar = ({ showPanel, setShowPanel }) => {
   useEffect(() => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
-        setChats(doc.data());
+        const chatsData = doc.data();
+        setChats(chatsData);
+        originalChatsRef.current = chatsData;
       });
       return () => {
         unsub();
@@ -43,7 +46,11 @@ const Sidebar = ({ showPanel, setShowPanel }) => {
   return (
     <div className="sidebar">
       <NavInfo />
-      <Search chats={chats} setChats={setChats} />
+      <Search
+        originalChats={originalChatsRef.current}
+        chats={chats}
+        setChats={setChats}
+      />
       <ChatList
         setShowPanel={setShowPanel}
         handleSelect={handleSelect}
