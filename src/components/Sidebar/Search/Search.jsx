@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import "./Search.scss";
 
 const Search = ({ chats, setChats, originalChats }) => {
-  const [err, setErr] = useState(false);
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
@@ -13,10 +12,6 @@ const Search = ({ chats, setChats, originalChats }) => {
           .toLowerCase()
           .includes(searchValue.toLowerCase())
       );
-
-      if (filteredUser.length === 0) {
-        setErr(true);
-      }
 
       setChats(filteredUser);
     } else {
@@ -39,7 +34,6 @@ const Search = ({ chats, setChats, originalChats }) => {
             value={searchValue}
           />
         </form>
-        {err && <span className="err">User Not Found!</span>}
       </div>
     </div>
   );

@@ -1,23 +1,23 @@
-@import '../../style.scss';
+@import "../../style.scss";
 
-.chatpanel{
-    flex: 2;
-    background: $primary-color;
-    
-    .chatpanel_con{
-        display: flex;
-        flex-direction: column;
-    }
+.chatpanel {
+  flex: 2;
+  background: $primary-color;
+
+  .chatpanel_con {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-// @include mobile{
-//     .chatpanel{
-//         flex: 1;
-//     }
-//     .chatpanel-hide{
-//         display: none;
-//     }
-//     .chatpanel-show{
-//         display: block;
-//     }
-// }
+@include mobile {
+  .chatpanel {
+    flex: 1;
+  }
+  .chatpanel-hide {
+    display: none;
+  }
+  .chatpanel-show {
+    display: block;
+  }
+}

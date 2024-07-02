@@ -1,20 +1,19 @@
-@import '../../style.scss';
+@import "../../style.scss";
 
-.sidebar{
-    flex: 0.7;
-    background-color: $secondary-color;
-    height: 100%;
-    transform: translate(0);
-    font-family: 'Roboto';
+.sidebar {
+  flex: 0.7;
+  background-color: $secondary-color;
+  height: 100%;
+  transform: translate(0);
+  font-family: "Roboto";
 }
 
-//  @include mobile {
-//      .sidebar {
-//          flex: 1;
-//          display: block;
-//      }
-//      .sidebar_hide{
-//         display: none;
-//      }
-
-//  }
+@include mobile {
+  .sidebar {
+    flex: 1;
+    display: block;
+  }
+  .sidebar_hide {
+    display: none;
+  }
+}

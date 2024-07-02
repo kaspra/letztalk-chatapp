@@ -44,7 +44,7 @@ const Sidebar = ({ showPanel, setShowPanel }) => {
   console.log(chats);
 
   return (
-    <div className="sidebar">
+    <div className="sidebar sidebar_hide">
       <NavInfo />
       <Search
         originalChats={originalChatsRef.current}
