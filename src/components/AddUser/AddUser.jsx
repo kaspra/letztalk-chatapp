@@ -20,7 +20,7 @@ import { AppContext } from "../../context/AddUserContext";
 
 const AddUser = () => {
   const { closeAddUser } = useContext(AppContext);
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("Praveen");
   const [user, setUser] = useState(null);
   const [err, setErr] = useState(false);
   const [typing, setTyping] = useState(false);
@@ -119,18 +119,21 @@ const AddUser = () => {
 
     setUser(null);
     setUsername("");
+    closeAddUser();
   };
 
   return (
     <div className="search">
       <div className="search_con">
-        <RxCross2
-          onClick={() => closeAddUser()}
-          color={"#eeeeee"}
-          size={20}
-          fontWeight={"bold"}
-          cursor={"pointer"}
-        />
+        <div className="search_con-icon">
+          <RxCross2
+            onClick={() => closeAddUser()}
+            color={"#222831"}
+            size={20}
+            fontWeight={"bold"}
+            cursor={"pointer"}
+          />
+        </div>
         <form>
           <input
             type="text"
@@ -139,9 +142,10 @@ const AddUser = () => {
               setUsername(e.target.value);
             }}
             value={username}
+            style={{ background: "#222831", color: "#eeeeee" }}
           />
         </form>
-        {err && <span className="err">User not found!</span>}
+        {err && <span className="err">User Not Found!</span>}
         {user && (
           <div className="chatbox" onClick={handleSelect}>
             {user.photoURL ? (
