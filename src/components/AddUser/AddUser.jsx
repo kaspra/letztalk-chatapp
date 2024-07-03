@@ -9,16 +9,17 @@ import {
   updateDoc,
   serverTimestamp,
   getDoc,
+  onSnapshot,
 } from "firebase/firestore";
-
+import { RxCross2 } from "react-icons/rx";
 import { db } from "../../firebase";
 import { AuthContext } from "../../context/AuthContext";
 import { images } from "../../constants";
 import "./AddUser.scss";
+import { AppContext } from "../../context/AddUserContext";
 
-const AddUser = ({ chats, setChats }) => {
-  // --- Search for users in database ---
-
+const AddUser = () => {
+  const { closeAddUser } = useContext(AppContext);
   const [username, setUsername] = useState("");
   const [user, setUser] = useState(null);
   const [err, setErr] = useState(false);
@@ -123,6 +124,13 @@ const AddUser = ({ chats, setChats }) => {
   return (
     <div className="search">
       <div className="search_con">
+        <RxCross2
+          onClick={() => closeAddUser()}
+          color={"#eeeeee"}
+          size={20}
+          fontWeight={"bold"}
+          cursor={"pointer"}
+        />
         <form>
           <input
             type="text"

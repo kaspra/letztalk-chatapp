@@ -15,6 +15,13 @@
       cursor: pointer;
     }
 
+    .navinfo_con-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+
     .navinfo_con-user {
       img {
         width: 42px;
