@@ -9,8 +9,6 @@ import { images } from "../../../constants";
 import "./ChatList.scss";
 
 const ChatList = ({ setShowPanel, handleSelect, chats, setChats }) => {
-  // pass the chats data to the search component
-
   // const [chats, setChats] = useState([]);
 
   // const { currentUser } = useContext(AuthContext);
@@ -41,7 +39,12 @@ const ChatList = ({ setShowPanel, handleSelect, chats, setChats }) => {
 
   return (
     <div className="chatlist">
-      <div className="chatlist_con" onClick={() => setShowPanel(true)}>
+      <div
+        className="chatlist_con"
+        onClick={(e) => {
+          setShowPanel(true);
+        }}
+      >
         {chats &&
           Object.entries(chats)
             ?.sort((a, b) => b[1].date - a[1].date)

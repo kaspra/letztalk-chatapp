@@ -3,10 +3,12 @@
 .chatpanel {
   flex: 2;
   background: $primary-color;
+  height: auto;
 
   .chatpanel_con {
     display: flex;
     flex-direction: column;
+    height: fit-content;
   }
 }
 

@@ -1,25 +1,27 @@
-@import '../../../style.scss';
+@import "../../../style.scss";
 
-.senderinfo{
-    padding: 12px 20px;
-    font-family: 'Roboto';
-    letter-spacing: .4px;
+.senderinfo {
+  padding: 16px 20px;
+  font-family: "Roboto";
+  letter-spacing: 0.4px;
 
-    .senderinfo_con{
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        gap: 14px;
+  .senderinfo_con {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 14px;
 
-        img{
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        span{
-            font-size: 18px;
-        }
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
     }
+
+    span {
+      font-size: 18px;
+      color: $main-color;
+      font-weight: bold;
+    }
+  }
 }

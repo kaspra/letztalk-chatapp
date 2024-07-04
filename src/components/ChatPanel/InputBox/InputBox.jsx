@@ -69,6 +69,10 @@ const InputBox = () => {
 
     const imageUrl = await handleImageUpload();
 
+    if (!btext) {
+      return;
+    }
+
     const messageData = {
       id: uuid(),
       btext,

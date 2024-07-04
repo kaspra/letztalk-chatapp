@@ -1,13 +1,16 @@
-.home{
-    height: 100dvh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@import "../../style.scss";
 
-    .home_con{
-        width: 100%;
-        height: 100%;
-        display: flex;
-        overflow: hidden;
-    }
+.home {
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $primary-color;
+
+  .home_con {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+  }
 }
