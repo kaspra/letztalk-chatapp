@@ -20,7 +20,7 @@ import { AppContext } from "../../context/AddUserContext";
 
 const AddUser = () => {
   const { closeAddUser } = useContext(AppContext);
-  const [username, setUsername] = useState("Praveen");
+  const [username, setUsername] = useState("");
   const [user, setUser] = useState(null);
   const [err, setErr] = useState(false);
   const [typing, setTyping] = useState(false);
