@@ -23,7 +23,7 @@ const NavInfo = () => {
             onClick={() => openAddUser()}
           />
           <div className="navinfo_con-user">
-            <Link to={"/user"}>
+            <Link to={"/profile"}>
               {currentUser.photoURL ? (
                 <img src={currentUser.photoURL} alt={currentUser.displayName} />
               ) : (
