@@ -1,13 +1,13 @@
-@import '../../../style.scss';
+@import "../../../style.scss";
 
-.divider{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.divider {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 
-    .divider_line{
-        width: 90%;
-        height: 2px;
-        background: #fdececb3;
-    }
+  .divider_line {
+    width: 90%;
+    height: 1px;
+    background: #fdececb3;
+  }
 }

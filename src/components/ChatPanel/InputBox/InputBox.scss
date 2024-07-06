@@ -3,7 +3,7 @@
 .inputbox {
   //   height: 10dvh;
   padding: 10px;
-  font-family: Arial;
+  // font-family: Arial;
   margin-bottom: 8px;
 
   .inputbox_con {
@@ -28,10 +28,6 @@
         width: 80%;
         color: $primary-color;
         background: transparent;
-
-        &::placeholder {
-          font-weight: 600;
-        }
 
         &:focus {
           outline: none;

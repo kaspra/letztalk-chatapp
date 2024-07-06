@@ -1,101 +1,100 @@
-@import '../../style.scss';
+@import "../../style.scss";
 
 .login {
-    height: 100dvh;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // font-family: 'Poppins', sans-serif;
+
+  .login_card {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    background-color: $main-color;
     align-items: center;
 
-    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    border-radius: 12px;
+    gap: 10px;
+    width: 360px;
 
-    .login_card {
+    img {
+      width: auto;
+      height: 36px;
+    }
+
+    h4 {
+      font-size: 20px;
+      color: $primary-color;
+    }
+
+    .login_card-con {
+      width: 100%;
+
+      form {
         display: flex;
         flex-direction: column;
-        background-color: $main-color;
+        gap: 6px;
         align-items: center;
 
-        padding: 20px;
-        border-radius: 12px;
-        gap: 10px;
-        width: 360px;
+        input {
+          border: none;
+          background-color: $secondary-color;
+          padding: 12px 16px;
+          border-radius: 20px;
+          color: $dark-gray;
 
-        img {
-            width: auto;
-            height: 36px;
+          width: 90%;
+          font-size: 16px;
+          //   font-family: "Nunito Sans";
+
+          &::placeholder {
+            color: $light-gray;
+          }
+
+          &:focus {
+            outline: none;
+          }
         }
 
-        h4 {
-            font-size: 20px;
-            color: $primary-color;
+        button {
+          border: none;
+          border-radius: 20px;
+          padding: 10px;
+          font-size: 14px;
+          font-weight: 600;
+          width: 90%;
+          color: $main-color;
+          background-color: $primary-color;
+          cursor: pointer;
         }
 
-        .login_card-con {
-            width: 100%;
-
-            form {
-                display: flex;
-                flex-direction: column;
-                gap: 6px;
-                align-items: center;
-
-                input {
-                    border: none;
-                    background-color: $secondary-color;
-                    padding: 12px 16px;
-                    border-radius: 20px;
-                    color: $dark-gray;
-
-                    width: 90%;
-                    font-size: 16px;
-                    font-family: 'Nunito Sans';
-
-                    &::placeholder {
-                        color: $light-gray;
-                    }
-
-                    &:focus {
-                        outline: none;
-                    }
-                }
-
-                button {
-                    border: none;
-                    border-radius: 20px;
-                    padding: 10px;
-                    font-size: 14px;
-                    font-weight: 600;
-                    width: 90%;
-                    color: $main-color;
-                    background-color: $primary-color;
-                    cursor: pointer;
-                }
-
-                a {
-                    font-weight: 400;
-                    font-size: 14px;
-                    text-decoration: none;
-                    color: $primary-color;
-                }
-
-                span {
-                    font-size: 12px;
-                    color: $primary-color;
-                }
-
-            }
-
-            p {
-                font-size: 14px;
-                text-align: center;
-                margin-top: 12px;
-                color: $primary-color;
-
-                a{
-                    font-weight: 500;
-                    text-decoration: none;
-                    color: $primary-color;
-                }
-            }
+        a {
+          font-weight: 400;
+          font-size: 14px;
+          text-decoration: none;
+          color: $primary-color;
         }
+
+        span {
+          font-size: 12px;
+          color: $primary-color;
+        }
+      }
+
+      p {
+        font-size: 14px;
+        text-align: center;
+        margin-top: 12px;
+        color: $primary-color;
+
+        a {
+          font-weight: 500;
+          text-decoration: none;
+          color: $primary-color;
+        }
+      }
     }
+  }
 }

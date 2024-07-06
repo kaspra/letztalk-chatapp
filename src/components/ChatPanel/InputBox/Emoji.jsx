@@ -26,6 +26,7 @@ const Emoji = ({ onSelectEmoji }) => {
           <Picker
             className="input_emoji-picker"
             data={data}
+            theme={"dark"}
             onEmojiSelect={(e) => handleSelectEmoji(e)}
           />
         </div>
