@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { v4 as uuid } from "uuid";
 import {
   arrayUnion,
@@ -8,7 +8,10 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { IoIosSend } from "react-icons/io";
+import { CgAttachment } from "react-icons/cg";
 
+import Emoji from "./Emoji";
 import { images } from "../../../constants";
 import { AuthContext } from "../../../context/AuthContext";
 import { ChatContext } from "../../../context/ChatContext";
@@ -19,8 +22,15 @@ const InputBox = () => {
   const [btext, setBText] = useState("");
   const [img, setImg] = useState(null);
 
+  const inputRef = useRef();
+
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
+
+  const handleSelectEmoji = (emoji) => {
+    setBText((prev) => prev + emoji);
+    inputRef.current.focus();
+  };
 
   const handleImageUpload = async () => {
     if (!img) return null;
@@ -54,22 +64,22 @@ const InputBox = () => {
     const isMobile = screenWidth <= 499;
     const imageElement = document.getElementById("picture");
 
-    if (isMobile) {
-      imageElement.innerHTML = `<img src=${images.attach} className="mobile-attach" />`;
-    } else {
-      imageElement.innerHTML = `<img src=${images.attach} className='attach' />`;
-    }
+    // if (isMobile) {
+    //   imageElement.innerHTML = `<img src=${images.attach} className="mobile-attach" />`;
+    // } else {
+    //   imageElement.innerHTML = `<img src=${images.attach} className='attach' />`;
+    // }
   };
 
   const handleSend = async (e) => {
     e.preventDefault();
     setBText("");
     setImg(null);
-    resetAttachedImage();
+    // resetAttachedImage();
 
     const imageUrl = await handleImageUpload();
 
-    if (!btext) {
+    if (!btext && !imageUrl) {
       return;
     }
 
@@ -98,19 +108,24 @@ const InputBox = () => {
       [`${data.chatId}.lastMessage`]: { btext },
       [`${data.chatId}.date`]: serverTimestamp(),
     });
+
+    setBText("");
+    setImg(null);
   };
   return (
     <div className="inputbox">
       <div className="inputbox_con">
         <form onSubmit={handleSend}>
           <input
+            className="input_msg-box"
             type="text"
             placeholder="Write Something"
-            value={btext}
             onChange={(e) => setBText(e.target.value)}
-            className="input_msg-box"
+            value={btext}
+            ref={inputRef}
           />
           <div className="input_btn">
+            {/* Attachment Icon */}
             <div className="input_attach">
               <input
                 type="file"
@@ -119,15 +134,20 @@ const InputBox = () => {
                 style={{ display: "none" }}
               />
               <label htmlFor="file" id="picture">
-                <img src={images.attach} />
+                <CgAttachment size={18} />
               </label>
             </div>
+
+            {/* Emoji Picker */}
+            <Emoji onSelectEmoji={handleSelectEmoji} />
+
+            {/* Send Button */}
             <div className="input_send">
               <button type="submit" style={{ display: "none" }} id="button">
                 Send
               </button>
               <label htmlFor="button">
-                <img src={images.sendbtn} />
+                <IoIosSend size={18} />
               </label>
             </div>
           </div>

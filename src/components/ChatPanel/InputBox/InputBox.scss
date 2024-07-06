@@ -43,18 +43,37 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 6px;
+        gap: 8px;
 
         .input_attach {
           label {
             display: flex;
             justify-content: center;
             align-items: center;
-
-            img {
-              width: 21px;
-              height: 21px;
+            svg {
+              color: $primary-color;
               cursor: pointer;
+            }
+          }
+        }
+
+        .input_emoji {
+          svg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $primary-color;
+          }
+
+          .input_emoji-box {
+            position: fixed;
+            left: 50%;
+            bottom: 20%;
+
+            .input_emoji-picker {
+              position: absolute;
+              bottom: 100%;
+              z-index: 10;
             }
           }
         }
@@ -66,12 +85,11 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          cursor: pointer;
 
           label {
-            img {
-              width: 20px;
-              height: 20px;
-              object-fit: contain;
+            svg {
+              color: $main-color;
               cursor: pointer;
             }
           }
