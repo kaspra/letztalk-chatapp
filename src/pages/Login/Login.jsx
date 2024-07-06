@@ -29,7 +29,7 @@ const Login = () => {
   return (
     <div className="login">
       <div className="login_card">
-        <img src={images.white_logo} alt="Logo" />
+        <img src={images.logo} alt="Logo" />
         <h4>Login</h4>
         <div className="login_card-con">
           <form onSubmit={handleSubmit}>

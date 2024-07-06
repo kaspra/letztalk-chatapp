@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+// import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -13,41 +13,40 @@ export default function Register() {
   const [err, setErr] = useState(false);
   const navigate = useNavigate();
 
-  const showprofile = (e) => {
-    if (e.target.files[0]) {
-      document.getElementById(
-        "picture"
-      ).innerHTML = `<img class='reg-userimg' src=${URL.createObjectURL(
-        e.target.files[0]
-      )} alt="" /> <span>${e.target.files[0].name} </span>`;
-    }
-  };
+  // const showprofile = (e) => {
+  //   if (e.target.files[0]) {
+  //     document.getElementById(
+  //       "picture"
+  //     ).innerHTML = `<img class='reg-userimg' src=${URL.createObjectURL(
+  //       e.target.files[0]
+  //     )} alt="" /> <span>${e.target.files[0].name} </span>`;
+  //   }
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const displayName = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
-    const file = e.target[3].files[0];
+    // const file = e.target[3].files[0];
 
     try {
       setLoading(true);
       const res = await createUserWithEmailAndPassword(auth, email, password);
 
-      let photoURL = null;
+      // let photoURL = null;
 
-      if (file) {
-        const date = new Date().getTime();
-        const storageRef = ref(storage, `profile/${displayName + date}`);
+      // if (file) {
+      //   const date = new Date().getTime();
+      //   const storageRef = ref(storage, `profile/${displayName + date}`);
 
-        await uploadBytesResumable(storageRef, file).then(async () => {
-          photoURL = await getDownloadURL(storageRef);
-        });
-      }
+      //   await uploadBytesResumable(storageRef, file).then(async () => {
+      //     photoURL = await getDownloadURL(storageRef);
+      //   });
+      // }
 
       await updateProfile(res.user, {
         displayName,
-        photoURL,
       });
 
       await setDoc(doc(db, "users", res.user.uid), {
@@ -55,7 +54,6 @@ export default function Register() {
         displayName,
         email,
         password,
-        photoURL,
       });
 
       await setDoc(doc(db, "userChats", res.user.uid), {});
@@ -71,7 +69,7 @@ export default function Register() {
   return (
     <div className="register">
       <div className="register_card">
-        <img src={images.white_logo} alt="Logo" />
+        <img src={images.logo} alt="Logo" />
         <h4>Register</h4>
         <div className="register_card-con">
           <form onSubmit={handleSubmit}>
@@ -83,7 +81,7 @@ export default function Register() {
               autoComplete="on"
               required
             />
-            <input
+            {/* <input
               style={{ display: "none" }}
               type="file"
               id="file"
@@ -92,7 +90,7 @@ export default function Register() {
             <label id="picture" htmlFor="file">
               <img className="reg-defaultimg" src={images.addprofile} />
               <span>Add an Profile Picture</span>
-            </label>
+            </label> */}
             <button>{!loading ? "Sign up" : "Loading..."}</button>
             {err && <span className="error">Check Details Correctly!</span>}
           </form>
