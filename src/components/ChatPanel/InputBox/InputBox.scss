@@ -28,7 +28,6 @@
         width: 80%;
         color: $primary-color;
         background: transparent;
-        font-weight: 600;
 
         &::placeholder {
           font-weight: 600;
@@ -46,6 +45,11 @@
         gap: 8px;
 
         .input_attach {
+          span {
+            color: $primary-color;
+            font-size: 12px;
+            cursor: pointer;
+          }
           label {
             display: flex;
             justify-content: center;

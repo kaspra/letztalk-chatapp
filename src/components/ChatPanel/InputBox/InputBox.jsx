@@ -12,7 +12,6 @@ import { IoIosSend } from "react-icons/io";
 import { CgAttachment } from "react-icons/cg";
 
 import Emoji from "./Emoji";
-import { images } from "../../../constants";
 import { AuthContext } from "../../../context/AuthContext";
 import { ChatContext } from "../../../context/ChatContext";
 import { db, storage } from "../../../firebase";
@@ -21,7 +20,9 @@ import "./InputBox.scss";
 const InputBox = () => {
   const [btext, setBText] = useState("");
   const [img, setImg] = useState(null);
-
+  const [attachmentLabel, setAttachmentLabel] = useState(
+    <CgAttachment size={18} />
+  );
   const inputRef = useRef();
 
   const { currentUser } = useContext(AuthContext);
@@ -53,29 +54,19 @@ const InputBox = () => {
     setImg(selectedFile);
 
     if (selectedFile) {
-      document.getElementById(
-        "picture"
-      ).innerHTML = `<span>${selectedFile.name.slice(0, 10)}</span>`;
+      setAttachmentLabel(<span>{selectedFile.name.slice(0, 10)}</span>);
     }
   };
 
   const resetAttachedImage = () => {
-    const screenWidth = window.innerWidth;
-    const isMobile = screenWidth <= 499;
-    const imageElement = document.getElementById("picture");
-
-    // if (isMobile) {
-    //   imageElement.innerHTML = `<img src=${images.attach} className="mobile-attach" />`;
-    // } else {
-    //   imageElement.innerHTML = `<img src=${images.attach} className='attach' />`;
-    // }
+    setAttachmentLabel(<CgAttachment size={18} />);
   };
 
   const handleSend = async (e) => {
     e.preventDefault();
     setBText("");
     setImg(null);
-    // resetAttachedImage();
+    resetAttachedImage();
 
     const imageUrl = await handleImageUpload();
 
@@ -108,9 +99,6 @@ const InputBox = () => {
       [`${data.chatId}.lastMessage`]: { btext },
       [`${data.chatId}.date`]: serverTimestamp(),
     });
-
-    setBText("");
-    setImg(null);
   };
   return (
     <div className="inputbox">
@@ -134,7 +122,7 @@ const InputBox = () => {
                 style={{ display: "none" }}
               />
               <label htmlFor="file" id="picture">
-                <CgAttachment size={18} />
+                {attachmentLabel}
               </label>
             </div>
 
