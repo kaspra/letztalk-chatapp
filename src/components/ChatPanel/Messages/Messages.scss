@@ -38,10 +38,16 @@
         a {
           display: flex;
           flex-direction: row;
+          width: 50%;
 
           img {
-            width: 50%;
+            height: 200px;
+            width: 200px;
             border-radius: 8px;
+          }
+
+          svg {
+            color: $main-color;
           }
         }
 
@@ -74,8 +80,11 @@
 
           a {
             flex-direction: row-reverse;
+            width: 50%;
 
             img {
+              height: 200px;
+              width: 200px;
               border-radius: 8px;
             }
           }

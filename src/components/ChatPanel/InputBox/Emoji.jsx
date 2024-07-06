@@ -17,7 +17,10 @@ const Emoji = ({ onSelectEmoji }) => {
     <div className="input_emoji">
       <div
         className="input_emoji-btn"
-        onClick={() => setIsPickerOpen(!isPickerOpen)}
+        onClick={(e) => {
+          setIsPickerOpen(!isPickerOpen);
+          e.stopPropagation();
+        }}
       >
         <MdOutlineEmojiEmotions size={20} cursor={"pointer"} />
       </div>
@@ -27,6 +30,7 @@ const Emoji = ({ onSelectEmoji }) => {
             className="input_emoji-picker"
             data={data}
             theme={"dark"}
+            onClickOutside={() => setIsPickerOpen(false)}
             onEmojiSelect={(e) => handleSelectEmoji(e)}
           />
         </div>

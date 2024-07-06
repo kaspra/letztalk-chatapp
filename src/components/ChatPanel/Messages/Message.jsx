@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { format } from "date-fns";
+import { FaFileAlt } from "react-icons/fa";
 
 import { AuthContext } from "../../../context/AuthContext";
 import { ChatContext } from "../../../context/ChatContext";
@@ -60,7 +61,7 @@ const Message = ({ message }) => {
       } else {
         return (
           <a href={message.img} target="_blank">
-            <img src={images.fileimage} alt="File" />
+            <FaFileAlt size={50} />
           </a>
         );
       }
