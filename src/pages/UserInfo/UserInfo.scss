@@ -68,14 +68,22 @@
     .userinfo-col {
       font-size: 18px;
       padding: 20px 0px;
+      row-gap: 10px;
+      display: flex;
+      flex-direction: column;
 
       .userinfo-con {
         display: flex;
-        column-gap: 20px;
+        gap: 10px;
         align-items: center;
         color: $dark-gray;
 
-        p {
+        span {
+          border: 2px solid $secondary-color;
+          min-width: 350px;
+          max-width: fit-content;
+          border-radius: 4px;
+          padding: 4px;
           font-size: 20px;
           font-weight: 600;
           letter-spacing: 0.25px;
@@ -85,15 +93,16 @@
 
     .userinfo-btn {
       margin-top: 20px;
-
+      display: flex;
+      justify-content: center;
       .reset_btn {
         width: 100%;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         appearance: none;
-        background-color: #fff;
-        border-radius: 24px;
+        background-color: $main-color;
+        border-radius: 8px;
         border-style: none;
         box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
           rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
