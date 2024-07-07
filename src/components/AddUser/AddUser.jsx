@@ -43,10 +43,6 @@ const AddUser = () => {
     );
     try {
       const querySnapshot = await getDocs(q);
-      console.log(
-        "Query Snapshot:",
-        querySnapshot.docs.map((doc) => doc.data())
-      );
 
       if (!querySnapshot.empty) {
         const userDoc = querySnapshot.docs[0];

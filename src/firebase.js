@@ -9,7 +9,7 @@ const firebaseConfig = {
   projectId: import.meta.env.VITE_REACT_APP_PROJECTID,
   storageBucket: import.meta.env.VITE_REACT_APP_STORAGEBUCKET,
   messagingSenderId: import.meta.env.VITE_REACT_APP_MESSAGINGSENDERID,
-  appId: import.meta.env.VITE_REACT_APP_APPID
+  appId: import.meta.env.VITE_REACT_APP_APPID,
 };
 
 export const app = initializeApp(firebaseConfig);

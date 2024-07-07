@@ -41,8 +41,6 @@ const Sidebar = ({ showPanel, setShowPanel }) => {
     });
   };
 
-  console.log(chats);
-
   return (
     <div className="sidebar sidebar_hide">
       <NavInfo />
@@ -55,7 +53,6 @@ const Sidebar = ({ showPanel, setShowPanel }) => {
         setShowPanel={setShowPanel}
         handleSelect={handleSelect}
         chats={chats}
-        setChats={setChats}
       />
     </div>
   );

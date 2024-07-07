@@ -33,7 +33,7 @@ export default function Register() {
           console.log("No profile Pic found");
         }
       } catch (error) {
-        console.log("Error on Pic fetch: ", error.message);
+        console.log("Error on ProfilePic fetch: ", error.message);
       }
     };
     fetchProfilePic();

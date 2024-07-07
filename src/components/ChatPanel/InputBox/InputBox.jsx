@@ -18,7 +18,7 @@ import { db, storage } from "../../../firebase";
 import "./InputBox.scss";
 
 const InputBox = () => {
-  const [btext, setBText] = useState("");
+  const [message, setMessage] = useState("");
   const [img, setImg] = useState(null);
   const [attachmentLabel, setAttachmentLabel] = useState(
     <CgAttachment size={18} />
@@ -29,14 +29,16 @@ const InputBox = () => {
   const { data } = useContext(ChatContext);
 
   const handleSelectEmoji = (emoji) => {
-    setBText((prev) => prev + emoji);
+    setMessage((prev) => prev + emoji);
     inputRef.current.focus();
   };
 
   const handleImageUpload = async () => {
     if (!img) return null;
 
-    const fileName = `shared/${currentUser.displayName}/${img.name}.${uuid()}`;
+    const fileName = `sharedFiles/${currentUser.displayName}/${
+      img.name
+    }.${uuid()}`;
     const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, img);
 
@@ -64,24 +66,24 @@ const InputBox = () => {
 
   const handleSend = async (e) => {
     e.preventDefault();
-    setBText("");
+    setMessage("");
     setImg(null);
     resetAttachedImage();
 
     const imageUrl = await handleImageUpload();
 
-    if (!btext && !imageUrl) {
+    if (!message && !imageUrl) {
       return;
     }
 
     const messageData = {
       id: uuid(),
-      btext,
-      bFrom: currentUser.displayName,
-      bTo: data.user?.displayName,
       senderId: currentUser.uid,
-      date: Timestamp.now(),
+      from: currentUser.displayName,
+      to: data.user?.displayName,
+      message,
       img: imageUrl,
+      date: Timestamp.now(),
     };
 
     await updateDoc(doc(db, "chats", data.chatId), {
@@ -91,12 +93,12 @@ const InputBox = () => {
     });
 
     await updateDoc(doc(db, "userChats", currentUser.uid), {
-      [`${data.chatId}.lastMessage`]: { btext },
+      [`${data.chatId}.lastMessage`]: { message },
       [`${data.chatId}.date`]: serverTimestamp(),
     });
 
     await updateDoc(doc(db, "userChats", data.user.uid), {
-      [`${data.chatId}.lastMessage`]: { btext },
+      [`${data.chatId}.lastMessage`]: { message },
       [`${data.chatId}.date`]: serverTimestamp(),
     });
   };
@@ -108,8 +110,8 @@ const InputBox = () => {
             className="input_msg-box"
             type="text"
             placeholder="Write Something"
-            onChange={(e) => setBText(e.target.value)}
-            value={btext}
+            onChange={(e) => setMessage(e.target.value)}
+            value={message}
             ref={inputRef}
           />
           <div className="input_btn">

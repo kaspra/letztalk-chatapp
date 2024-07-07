@@ -79,7 +79,7 @@ const Message = ({ message }) => {
       <div className="message_con">
         {Image()}
         <div className="message_text">
-          <p>{message.btext}</p>
+          <p>{message.message}</p>
           <span>{formattedTime}</span>
         </div>
       </div>

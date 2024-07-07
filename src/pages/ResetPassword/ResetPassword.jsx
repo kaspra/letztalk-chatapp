@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 import { auth } from "../../firebase";
 import { images } from "../../constants";
@@ -23,11 +24,12 @@ const ResetPassword = () => {
       <div className="reset_pass-box">
         <div className="reset_pass-top">
           <a href="/">
-            <img src={images.backarrow} alt="" />
+            <IoMdArrowRoundBack size={24} color="white" />
           </a>
-          {/* <span>LetzTalk</span> */}
           <img className="reset_pass-logo" src={images.logo} />
-          <img src={images.attach} style={{ visibility: "hidden" }} />
+          <div style={{ visibility: "hidden" }}>
+            <IoMdArrowRoundBack size={24} color="white" />
+          </div>
         </div>
         <div className="reset_pass-con">
           <span>Reset Password</span>
