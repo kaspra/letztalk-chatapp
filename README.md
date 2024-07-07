@@ -4,15 +4,15 @@
 
 Working On :-
 
-- Auth UI
-- Profile UI
-- Randomize the DP
 - Check
 
 - Mobile Version
 
 Finished :-
 
+- Randomize the DP
+- Auth UI
+- Profile UI
 - ChatList Updated
 - SideBar Updated
 - Deploy to Vercel
