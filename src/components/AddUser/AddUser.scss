@@ -76,3 +76,21 @@
     }
   }
 }
+
+@include mobile {
+  .search {
+    .search_con {
+      .search_con-icon {
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+      form {
+        input {
+          padding: 14px 10px;
+        }
+      }
+    }
+  }
+}

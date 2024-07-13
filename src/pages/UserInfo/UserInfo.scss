@@ -79,9 +79,6 @@
         color: $dark-gray;
 
         span {
-          border: 2px solid $secondary-color;
-          min-width: 350px;
-          max-width: fit-content;
           border-radius: 4px;
           padding: 4px;
           font-size: 20px;
@@ -145,6 +142,14 @@
           border: 2px solid #4285f4;
         }
       }
+    }
+  }
+}
+
+@include mobile {
+  .userinfo {
+    .userinfo_redirect {
+      padding: 14px 18px;
     }
   }
 }
