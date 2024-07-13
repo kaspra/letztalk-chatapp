@@ -16,7 +16,7 @@
 
     .message {
       display: flex;
-      gap: 20px;
+      gap: 14px;
       margin-bottom: 20px;
 
       .message_info {
@@ -102,6 +102,33 @@
             span {
               font-weight: 500;
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .messages {
+    .messages_con {
+      .message {
+        gap: 10px;
+
+        .message_info {
+          img {
+            width: 32px;
+            height: 32px;
+          }
+        }
+
+        .message_con {
+          max-width: 70%;
+
+          .message_text {
+            word-wrap: break-word;
+            word-break: break-word;
+            overflow-wrap: break-word;
           }
         }
       }

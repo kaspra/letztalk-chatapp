@@ -103,3 +103,34 @@
     }
   }
 }
+
+@include mobile {
+  .inputbox {
+    .inputbox_con {
+      form {
+        .input_msg-box {
+          padding: 10px 0;
+        }
+        .input_btn {
+          gap: 5px;
+
+          .input_emoji {
+            .input_emoji-box {
+              left: 0;
+              bottom: 14%;
+            }
+          }
+
+          .input_send {
+            padding: 8px 8px 4px 8px;
+
+            svg {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

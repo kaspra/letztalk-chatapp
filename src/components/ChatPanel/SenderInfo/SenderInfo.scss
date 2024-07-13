@@ -12,7 +12,15 @@
     gap: 14px;
 
     .senderinfo_con-back {
-      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        color: white;
+        height: 26px;
+        width: 26px;
+      }
     }
 
     .senderinfo_con-detail {
@@ -32,6 +40,25 @@
         font-size: 18px;
         color: $main-color;
         font-weight: bold;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .senderinfo {
+    .senderinfo_con {
+      .senderinfo_con-detail {
+        gap: 6px;
+
+        img {
+          width: 30px;
+          height: 30px;
+        }
+
+        span {
+          font-size: 16px;
+        }
       }
     }
   }
