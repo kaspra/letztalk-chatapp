@@ -1,9 +1,24 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
-const AppContext = React.createContext();
+export const SidebarContext = React.createContext();
 
-const AppProvider = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+export const SidebarProvider = ({ children }) => {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    };
+
+    checkMobile();
+
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
 
   const openSidebar = () => {
     setSidebarOpen(true);
@@ -14,20 +29,15 @@ const AppProvider = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider
+    <SidebarContext.Provider
       value={{
         sidebarOpen,
+        isMobile,
         openSidebar,
         closeSidebar,
       }}
     >
       {children}
-    </AppContext.Provider>
+    </SidebarContext.Provider>
   );
 };
-
-export const useGlobalContext = () => {
-  return useContext(AppContext);
-};
-
-export { AppContext, AppProvider };

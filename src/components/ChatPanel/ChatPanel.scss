@@ -13,8 +13,9 @@
 }
 
 @include mobile {
-  .chatpanel {
-    flex: 1;
+  .chatpanel_mobile {
+    flex: auto;
+    width: 100%;
   }
   .chatpanel-hide {
     display: none;

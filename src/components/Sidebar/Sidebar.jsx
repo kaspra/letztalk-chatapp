@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { ChatContext } from "../../context/ChatContext";
 import { db } from "../../firebase";
 import { images } from "../../constants";
-import { useGlobalContext } from "../../context/SidebarContext";
+import { SidebarContext } from "../../context/SidebarContext";
 import NavInfo from "./NavInfo/NavInfo";
 import Search from "./Search/Search";
 import ChatList from "./ChatList/ChatList";
@@ -17,7 +17,7 @@ const Sidebar = ({ showPanel, setShowPanel }) => {
 
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
-  const { closeSidebar } = useGlobalContext();
+  const { closeSidebar, isMobile, sidebarOpen } = useContext(SidebarContext);
 
   useEffect(() => {
     const getChats = () => {
@@ -34,7 +34,9 @@ const Sidebar = ({ showPanel, setShowPanel }) => {
   }, [currentUser.uid]);
 
   const handleSelect = (u) => {
-    closeSidebar();
+    if (isMobile) {
+      closeSidebar();
+    }
     dispatch({
       type: "CHANGE_USER",
       payload: u,
@@ -42,7 +44,11 @@ const Sidebar = ({ showPanel, setShowPanel }) => {
   };
 
   return (
-    <div className="sidebar sidebar_hide">
+    <div
+      className={`${
+        isMobile ? (sidebarOpen ? "sidebar_mobile" : "sidebar-hide") : "sidebar"
+      }`}
+    >
       <NavInfo />
       <Search
         originalChats={originalChatsRef.current}

@@ -9,11 +9,13 @@
 }
 
 @include mobile {
-  .sidebar {
-    flex: 1;
-    display: block;
+  .sidebar_mobile {
+    flex: auto;
+    background-color: $secondary-color;
+    width: 100%;
+    // display: block;
   }
-  .sidebar_hide {
+  .sidebar-hide {
     display: none;
   }
 }

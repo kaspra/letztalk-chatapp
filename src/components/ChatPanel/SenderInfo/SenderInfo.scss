@@ -7,21 +7,32 @@
 
   .senderinfo_con {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     gap: 14px;
 
-    img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
+    .senderinfo_con-back {
+      color: white;
     }
 
-    span {
-      font-size: 18px;
-      color: $main-color;
-      font-weight: bold;
+    .senderinfo_con-detail {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 14px;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      span {
+        font-size: 18px;
+        color: $main-color;
+        font-weight: bold;
+      }
     }
   }
 }

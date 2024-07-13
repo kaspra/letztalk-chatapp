@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { AuthContextProvider } from "./context/AuthContext.jsx";
 import { ChatContextProvider } from "./context/ChatContext.jsx";
-import { AppProvider } from "./context/SidebarContext.jsx";
+import { SidebarProvider } from "./context/SidebarContext.jsx";
 import { AddUserContext } from "./context/AddUserContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -12,9 +12,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <ChatContextProvider>
       <AddUserContext>
         <React.StrictMode>
-          <AppProvider>
+          <SidebarProvider>
             <App />
-          </AppProvider>
+          </SidebarProvider>
         </React.StrictMode>
       </AddUserContext>
     </ChatContextProvider>
