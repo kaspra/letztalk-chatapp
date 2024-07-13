@@ -29,7 +29,10 @@ const ChatList = ({ setShowPanel, handleSelect, chats }) => {
                   )}
                   <div className="chatbox-info">
                     <span>{chat[1].userInfo.displayName}</span>
-                    <p>{chat[1].lastMessage?.message.slice(0, 20)}</p>
+                    <p>
+                      {chat[1].lastMessage?.message.slice(0, 30)}
+                      {chat[1].lastMessage?.message.length > 30 && "..."}
+                    </p>
                   </div>
                 </div>
               );

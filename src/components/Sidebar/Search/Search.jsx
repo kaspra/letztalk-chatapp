@@ -28,6 +28,7 @@ const Search = ({ chats, setChats, originalChats }) => {
       <div className="search_internal-con">
         <form>
           <input
+            className="search_internal-input"
             type="text"
             placeholder="Search..."
             onChange={handleSearch}

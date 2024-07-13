@@ -10,7 +10,8 @@
 
     form {
       width: 100%;
-      input {
+
+      .search_internal-input {
         width: 100%;
         border: none;
         padding: 8px 12px;
@@ -20,6 +21,19 @@
         // font-family: "Nunito Sans";
         &:focus {
           outline: none;
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .search_internal {
+    .search_internal-con {
+      form {
+        .search_internal-input {
+          padding: 12px;
+          font-size: 16px;
         }
       }
     }

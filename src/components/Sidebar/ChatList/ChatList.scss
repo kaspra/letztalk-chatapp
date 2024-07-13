@@ -30,6 +30,7 @@
         height: 36px;
         border-radius: 50%;
         object-fit: cover;
+        border: 1px solid $main-color;
       }
 
       span {
@@ -40,6 +41,25 @@
       p {
         font-size: 13px;
         color: $light-gray;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .chatlist {
+    .chatlist_con {
+      .chatbox {
+        img {
+          width: 40px;
+          height: 40px;
+        }
+        span {
+          font-size: 18px;
+        }
+        p {
+          font-size: 15px;
+        }
       }
     }
   }
