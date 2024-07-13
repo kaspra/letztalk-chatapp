@@ -102,6 +102,12 @@
           &:hover {
             border: 1px solid $main-color;
           }
+
+          @include mobile {
+            padding: 14px;
+            font-weight: 600;
+            font-size: 16px;
+          }
         }
 
         span {
