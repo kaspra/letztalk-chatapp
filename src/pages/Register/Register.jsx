@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-// import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
@@ -87,16 +86,6 @@ export default function Register() {
               autoComplete="on"
               required
             />
-            {/* <input
-              style={{ display: "none" }}
-              type="file"
-              id="file"
-              onChange={(e) => showprofile(e)}
-            />
-            <label id="picture" htmlFor="file">
-              <img className="reg-defaultimg" src={images.addprofile} />
-              <span>Add an Profile Picture</span>
-            </label> */}
             <button>{!loading ? "Sign up" : "Loading..."}</button>
             {err && <span className="error">Check Details Correctly!</span>}
           </form>

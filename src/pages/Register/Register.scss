@@ -7,8 +7,6 @@
   align-items: center;
   background-color: $primary-color;
 
-  // font-family: 'Poppins',sans-serif;
-
   .register_card {
     display: flex;
     flex-direction: column;
@@ -47,7 +45,6 @@
 
           width: 90%;
           font-size: 16px;
-          //   font-family: "Nunito Sans";
           &::placeholder {
             color: $primary-color;
           }
